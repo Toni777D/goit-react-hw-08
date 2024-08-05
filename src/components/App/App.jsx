@@ -1,38 +1,27 @@
+import { Suspense } from 'react';
+import { Route, Routes} from 'react-router-dom';
+import HomePage from '../../pages/HomePage/HomePage';
+import RegistrationPage from '../../pages/RegistrationPage/RegistrationPage';
+import LoginPage from '../../pages/LoginPage/LoginPage';
+import ContactsPage from '../../pages/ContactsPage/ContactsPage';
+import Layout from '../Layout/Layout'
 
-import ContactForm from '../ContactForm/ContactForm';
-import SearchBox from '../SearchBox/SearchBox';
-import ContactList from '../ContactList/ContactList';
-import styles from './App.module.css'
-import { useDispatch, useSelector} from 'react-redux';
-import { selectError, selectFilteredContacts, selectLoading } from '../../redux/contactsSlice';
-import { useEffect } from 'react';
-import { fetchContacts } from '../../redux/contactsOps';
+
 
 
 export default function App(){
-    const dispatch = useDispatch();
-    const loading = useSelector(selectLoading);
-    const error = useSelector(selectError);
-    const visibleContacts = useSelector(selectFilteredContacts);
-
-
-    useEffect(() => {
-        dispatch(fetchContacts())
-    }, [dispatch])
-
-    
-
-return(
-    <div className={styles.app}>
-        <h1>Phonebook</h1>
-        <ContactForm />
-        {loading && <p>Loading contact ...</p>}
-        {error && <p>Error: {error}</p>}
-        <SearchBox />
-        <ContactList />
-    </div>
-
-);
+   return (
+    <Layout>
+        <Suspense>
+            <Routes>
+                <Route path="/" element={<HomePage/>}/>
+                <Route path="/register" element={<RegistrationPage />}/>
+                <Route path="/login" element={<LoginPage />}/>
+                <Route path="/contacts " element={<ContactsPage/>}/>
+            </Routes>
+        </Suspense>
+    </Layout>
+   )
 };
 
 
