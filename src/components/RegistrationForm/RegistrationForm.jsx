@@ -35,5 +35,5 @@ export default function RegistrationForm(){
                 </Form>
             </Formik>
         </div>
-    )
+    );
 }

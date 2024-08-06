@@ -6,5 +6,5 @@ export default function AuthNav(){
             <NavLink to="/register">Registration</NavLink>
             <NavLink to="/login">Log in</NavLink>
         </div>
-    )
+    );
 }

@@ -4,6 +4,7 @@ import { logIn } from "../../redux/auth/operations";
 
 export default function LoginForm(){
     const dispatch = useDispatch();
+
     const handleSubmit = (values, actions) => {
         dispatch(logIn(values));
         actions.resetForm();
@@ -15,7 +16,7 @@ export default function LoginForm(){
             password: "",
         }}
         onSubmit={handleSubmit}>
-            <Form>
+            <Form autoComplete="off">
                 <label>
                     Email
                     <Field type="email" name="email"/>
@@ -28,5 +29,5 @@ export default function LoginForm(){
             </Form>
 
         </Formik>
-    )
+    );
 }
