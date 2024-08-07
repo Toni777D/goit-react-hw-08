@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = "https://connections-api.goit.global/";
+axios.defaults.baseURL = "https://connections-api.goit.global";
 
 // POST /users/signup 'create a new user'
 export const register = createAsyncThunk(
@@ -42,4 +42,26 @@ export const logOut = createAsyncThunk(
             return thunkAPI.rejectWithValue(error.message);
         }
     } 
+)
+
+// GET /users/current
+export const refreshUser = createAsyncThunk(
+    "auth/refresh",
+    async (_, thunkAPI) => {
+        const reduxToken = thunkAPI.getState();
+        axios.defaults.headers.common.Authorization = `Bearer ${reduxState.auth.token}`;
+
+        try {
+            const response = await axios.get("/users/current");
+            return response.data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.message);
+        }  
+    },
+    {
+        condition: (_, thunkAPI) => {
+            const reduxState = thunkAPI.getState();
+            return reduxState.auth.token !== null;
+        },
+    }
 )
