@@ -48,7 +48,10 @@ export const logOut = createAsyncThunk(
 export const refreshUser = createAsyncThunk(
     "auth/refresh",
     async (_, thunkAPI) => {
-        const reduxToken = thunkAPI.getState();
+        const reduxState = thunkAPI.getState();
+        if(!reduxState.auth.token){
+            return thunkAPI.rejectWithValue('Unable to fetch user');
+        }
         axios.defaults.headers.common.Authorization = `Bearer ${reduxState.auth.token}`;
 
         try {

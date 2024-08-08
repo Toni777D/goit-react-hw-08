@@ -4,10 +4,12 @@ import { register } from "../../redux/auth/operations";
 
 export default function RegistrationForm(){
     const dispatch = useDispatch();
+
     const handleSubmit =  (values, actions) => {
         dispatch(register(values));
         actions.resetForm();
-    }
+    };
+
     return(
         <div>
             <Formik initialValues={{
@@ -17,7 +19,7 @@ export default function RegistrationForm(){
             }}
             onSubmit={handleSubmit}
             >
-                <Form>
+                <Form autoComplete="off">
                     <label>
                         Username
                         <Field type="text" name="name"/>

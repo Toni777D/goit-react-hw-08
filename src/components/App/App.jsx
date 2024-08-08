@@ -23,7 +23,7 @@ export default function App(){
    return isRefreshing ? (<div>Refreshing user please wait ... </div>) : 
    (
         <Layout>
-        <Suspense fallback={<div>Loading ...</div>}>
+        <Suspense fallback={null}>
             <Routes>
                 <Route path="/" element={<HomePage/>}/>
 
@@ -51,8 +51,8 @@ export default function App(){
         </Layout>
     
     
- )
-};
+ );
+}
 
 
 
