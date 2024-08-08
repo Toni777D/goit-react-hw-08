@@ -12,7 +12,7 @@ export default function ContactsPage() {
     const dispatch = useDispatch();
     const isLoggedIn = useSelector(selectIsLoggedIn)
     const loading = useSelector(selectLoading);
-
+    
     useEffect(() => {
         dispatch(fetchContacts())
     }, [dispatch])
@@ -25,7 +25,7 @@ export default function ContactsPage() {
                 <ContactForm/>
                 <div>{loading && "Request in progress"}</div>
                 <ContactList/>
-                <Contact/>
+                
            </div>)}
         </div>
     );
