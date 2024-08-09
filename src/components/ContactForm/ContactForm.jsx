@@ -18,12 +18,10 @@ const ContactSchema = Yup.object().shape({
 
 export default function ContactForm(){
     const dispatch = useDispatch();
-
     const handleSubmit = (values, {resetForm}) => {
         dispatch(addContact(values))
         resetForm();
     }
-   
     return (
         <Formik
         initialValues={{ 
