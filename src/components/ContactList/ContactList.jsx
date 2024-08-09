@@ -5,7 +5,7 @@ import styles from './ContactList.module.css';
 
 export default function ContactList(){
     const contacts = useSelector(selectContacts);
-
+console.log(contacts);
     return (
         <ul className={styles.list}>
            {contacts.map(({id, text}) => (

@@ -5,7 +5,7 @@ import ContactList from "../../components/ContactList/ContactList";
 import {selectLoading} from "../../redux/contacts/selectors";
 import { fetchContacts } from "../../redux/contacts/operations";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
-import Contact from "../../components/Contact/Contact";
+import SearchBox from "../../components/SearchBox/SearchBox";
 
 
 export default function ContactsPage() {
@@ -25,7 +25,7 @@ export default function ContactsPage() {
                 <ContactForm/>
                 <div>{loading && "Request in progress"}</div>
                 <ContactList/>
-                
+                <SearchBox/>
            </div>)}
         </div>
     );

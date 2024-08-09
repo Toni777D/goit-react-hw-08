@@ -10,21 +10,20 @@ export default function ContactForm(){
         event.preventDefault();
         const form = event.currentTarget;
         const text = form.elements.text.value;
+        console.log(text);
+        
         if(text !== "") {
-            
-            dispatch(addContact(text))
-            form.reset();
+            dispatch(addContact({ text }));
+           form.reset();
             return;
-        }else{
+        }else {
             alert("Task cannot be empry");
         }
-        
-        
     };
    
     return (
     <form onSubmit={handleSubmit}>
-        <input type="text" name="text"/>
+        <input name="text"/>
         <button type="submit">Add task</button>
     </form>
     );
