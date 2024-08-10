@@ -6,6 +6,7 @@ import {selectLoading} from "../../redux/contacts/selectors";
 import { fetchContacts } from "../../redux/contacts/operations";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import SearchBox from "../../components/SearchBox/SearchBox";
+import styles from "./ContactsPage.module.css";
 
 
 export default function ContactsPage() {
@@ -20,12 +21,12 @@ export default function ContactsPage() {
     return(
         <div>  
            {isLoggedIn && ( 
-            <div>
-                <h2>Your contacts</h2>
+            <div className={styles.contactsPage}>
+                <h2 className={styles.title}>Your contacts</h2>
                 <ContactForm/>
+                <SearchBox/>
                 <div>{loading && "Request in progress"}</div>
                 <ContactList/>
-                <SearchBox/>
            </div>)}
         </div>
     );

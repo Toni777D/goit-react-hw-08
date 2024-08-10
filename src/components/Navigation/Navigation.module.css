@@ -1,0 +1,11 @@
+nav{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.nav{
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #562b98;
+}

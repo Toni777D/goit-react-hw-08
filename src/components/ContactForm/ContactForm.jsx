@@ -34,7 +34,7 @@ export default function ContactForm(){
 
         <Form className={styles.form}>
             <div className={styles.formGroup}>
-                <label>
+                <label htmlFor="name">
                 <Field className={styles.field} type="text" name="name" placeholder="Name"></Field>
                 <ErrorMessage name="name" component="div"/>
                 </label>

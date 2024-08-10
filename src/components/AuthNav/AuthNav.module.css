@@ -1,0 +1,13 @@
+.navigation{
+    display: flex;
+    gap: 20px;
+}
+.navLink{
+    text-decoration: none;
+    font-size: 20px;
+    color:  #562b98;
+    font-weight: 600;
+}
+.navLink:hover{
+    color: #bb77f294;
+}
